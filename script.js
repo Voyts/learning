@@ -21,11 +21,17 @@ window.addEventListener('DOMContentLoaded', function () {
 // 	});
 	// new RegExp('pattern', 'flags');
 	// /pattern/
-	let ans = prompt('Введите ваше имя');
-	let reg = /n/;
+	// let ans = prompt('Введите число');
+	// let reg = /\d/g;
+	// // console.log(reg.test(ans));
 
-	console.log(ans.search(reg));
+	// console.log(ans.match(reg));
 
-	
+	// // let pass =prompt("Введите пароль");
+	// // console.log(pass.replace(/./g, "*"));
+	// // alert("12-34-56".replace(/-/g, ":"));
+
+	let str = "My name is/ R2D2";
+	console.log(str.match(/\ /i));
 });
 
