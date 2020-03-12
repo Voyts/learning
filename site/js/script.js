@@ -1,6 +1,5 @@
 'use strict';
 
-
 let money, time;
 
 function start() {
@@ -13,7 +12,6 @@ function start() {
 
 }
 start();
-
     
 let appData = {
     budget: money,
@@ -28,8 +26,12 @@ let appData = {
                 b = prompt ("Во сколько обойдется?", "");
         
             if ( typeof(a)==='string' && typeof(a) != null && typeof(b) != null && a != "" && b != "" && a.length < 50) {
+        
+                console.log ("done");
+        
                 appData.expenses[a] = b;
             } else {
+                console.log ("bad result");
                 i--;
             }
         
@@ -66,22 +68,27 @@ let appData = {
             console.log(appData.optionalExpenses);
         }
     },
-    chooseIncome: function chooseIncome() {
-        let items = prompt('Что принесет дополнительный доход? (Перечислите через запятую)', '');
-        appData.income = items.split(', ');
-    }
+    chooseIncome: function () {
 
+        let items = prompt("Что принесет дополнительный доход? (Перечислите через запятую)", "");
+
+        if (typeof(items) != "string" || items == "" || typeof(items) == null) {
+            console.log("Вы ввели некорректные данные или не ввели их вовсе");
+        } else {
+            appData.income = items.split(", ");
+            appData.income.push(prompt("Может что-то еще?"));
+            appData.income.sort();
+        }
+
+        appData.income.forEach (function (itemmassive, i) {
+            alert("Способы доп. заработка: " + (i+1) + " - " + itemmassive);
+        });
+
+    }
 
 
 };
 
-
-
-
-
-
-function chooseIncome() {
-    
+for (let key in appData) {
+    console.log("Наша программа включает в себя данные: " + key + " - " + appData[key]);
 }
-chooseIncome()
-
